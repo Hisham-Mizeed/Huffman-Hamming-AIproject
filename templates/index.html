@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compression Tool</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            resize: none;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: none;
+            font-size: 15px;
+        }
+
+        select {
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+
+        .encoded {
+            background: #eee;
+            padding: 10px;
+            border-radius: 6px;
+            word-wrap: break-word;
+            font-family: monospace;
+        }
+
+        .codes {
+            margin-top: 10px;
+            max-height: 150px;
+            overflow-y: auto;
+            background: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .code-item {
+            font-family: monospace;
+        }
+
+        img {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 10px;
+        }
+
+        .stats {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>🔐 Compression Tool</h2>
+
+    <form method="POST">
+
+        <textarea name="text" rows="4" placeholder="Enter your text..."></textarea>
+
+        <select name="algorithm">
+            <option value="huffman">Huffman (Compression)</option>
+            <option value="hamming">Hamming (Error Correction)</option>
+        </select>
+
+        <button type="submit">Run</button>
+
+    </form>
+
+    {% if result %}
+    <div class="result">
+
+        <h3>📊 Results</h3>
+
+        <div class="encoded">
+            {{ result.encoded }}
+        </div>
+
+        <div class="stats">
+            <p><strong>Original Bits:</strong> {{ result.original_bits }}</p>
+
+            {% if algorithm == "huffman" %}
+                <p><strong>Compressed Bits:</strong> {{ result.compressed_bits }}</p>
+                <p><strong>Efficiency:</strong> {{ result.efficiency }}%</p>
+
+                <h4>🔑 Codes</h4>
+                <div class="codes">
+                    {% for k, v in result.codes.items() %}
+                        <div class="code-item">
+                            {% if k == ' ' %}
+                                [SPACE] → {{ v }}
+                            {% elif k == '\n' %}
+                                [ENTER] → {{ v }}
+                            {% elif k == '\t' %}
+                                [TAB] → {{ v }}
+                            {% else %}
+                                {{ k }} → {{ v }}
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {% if result.tree %}
+                    <h4>🌳 Huffman Tree</h4>
+                    <img src="{{ url_for('static', filename=result.tree) }}">
+                {% endif %}
+
+            {% elif algorithm == "hamming" %}
+                <p><strong>Encoded Bits:</strong> {{ result.encoded_bits }}</p>
+                <p><strong>Efficiency:</strong> {{ result.efficiency }}%</p>
+            {% endif %}
+        </div>
+
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

@@ -17,7 +17,7 @@ git clone https://github.com/Hisham-Mizeed/Huffman-Hamming-AIproject
 cd compression-tool
 Using SSH
 git clone git@github.com:Hisham-Mizeed/Huffman-Hamming-AIproject.git
-cd compression-tool
+cd Huffman-Hamming-AIproject
 
 
 🚀 Features

@@ -64,15 +64,16 @@ sudo apt install graphviz
 Run the app
 python app.py
 
-Open in browser:
-http://localhost:5000
-
 
 🐳 Run with Docker
 Build
 docker build -t compression-app .
 Run
 docker run -p 5000:5000 compression-app
+
+Open in browser:
+http://localhost:5000
+
 
 💡 Notes
 Graphviz is required for tree visualization

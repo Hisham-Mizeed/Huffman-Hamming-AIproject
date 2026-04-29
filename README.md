@@ -13,13 +13,12 @@ Built using Python + Flask with visualization support.
 
 ### Using HTTPS
 ```bash
-git clone https://github.com/username/compression-tool.git
+git clone https://github.com/Hisham-Mizeed/Huffman-Hamming-AIproject
 cd compression-tool
 Using SSH
-git clone git@github.com:username/compression-tool.git
+git clone git@github.com:Hisham-Mizeed/Huffman-Hamming-AIproject.git
 cd compression-tool
 
-⚠️ Replace username/compression-tool with your actual GitHub repository link.
 
 🚀 Features
 Encode text using Huffman Algorithm
@@ -76,8 +75,7 @@ Graphviz is required for tree visualization
 Whitespace characters are explicitly handled
 Efficiency is calculated differently for each algorithm
 👨‍💻 Author
-
-Mostafa Kadry
+Hisham Mizeed
 
 ⭐ If you like it
 

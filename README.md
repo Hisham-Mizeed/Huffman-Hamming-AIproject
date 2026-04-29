@@ -12,8 +12,7 @@ Built using Python + Flask with visualization support.
 ## 📥 Clone the Repository
 
 ### Using HTTPS
-
-
+```bash
 git clone https://github.com/username/compression-tool.git
 cd compression-tool
 Using SSH

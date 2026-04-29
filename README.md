@@ -27,20 +27,25 @@ Display compression efficiency
 Visualize Huffman Tree 🌳
 Handle whitespace characters (SPACE, ENTER, TAB)
 Clean and modern UI
+
 🧠 Algorithms
 1️⃣ Huffman Coding
 Used for data compression
 Assigns shorter codes to frequent characters
 Reduces total number of bits
+
 2️⃣ Hamming Code (7,4)
 Used for error detection and correction
 Adds redundancy bits
 Increases reliability of transmission
+
+
 📊 Comparison
 Feature	Huffman	Hamming
 Purpose	Compression	Error Correction
 Bits	Decrease	Increase
 Efficiency	Saves space	Adds redundancy
+
 🖥️ Project Structure
 .
 ├── app.py
@@ -51,6 +56,7 @@ Efficiency	Saves space	Adds redundancy
 ├── static/
 │   └── huffman_tree.png
 └── Dockerfile
+
 ▶️ Run Locally
 Install dependencies
 pip install flask graphviz
@@ -59,24 +65,22 @@ Run the app
 python app.py
 
 Open in browser:
-
 http://localhost:5000
+
+
 🐳 Run with Docker
 Build
 docker build -t compression-app .
 Run
 docker run -p 5000:5000 compression-app
-📸 Screenshots
-Huffman Encoding
-Hamming Encoding
-Huffman Tree Visualization
+
 💡 Notes
 Graphviz is required for tree visualization
 Whitespace characters are explicitly handled
 Efficiency is calculated differently for each algorithm
+
 👨‍💻 Author
 Hisham Mizeed
 
 ⭐ If you like it
-
 Give it a star on GitHub ⭐
